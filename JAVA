@@ -1,0 +1,45 @@
+public class toko {
+    static class Produk {
+        String nama;
+        int harga;
+        int jumlah;
+
+        Produk(String nama, int harga, int jumlah) {
+            this.nama = nama;
+            this.harga = harga;
+            this.jumlah = jumlah;
+        }
+    }
+
+    public static void main(String[] args) {
+        // Contoh data produk
+        Produk[] produkList = [];
+
+        // Contoh perhitungan (input jumlah bisa dari frontend)
+        produkList[].jumlah = [];
+
+        // Sortir berdasarkan harga
+        java.util.Arrays.sort(produkList, (a, b) -> Integer.compare(a.harga, b.harga));
+
+        // Hitung total
+        int total = 0;
+        for (Produk p : produkList) {
+            total += p.harga * p.jumlah;
+        }
+
+        // Terapkan diskon
+        double diskon = total >= 100000 ? total * 0.1 : 0;
+        double totalAkhir = total - diskon;
+
+        // Cetak struk
+        System.out.println("=== Struk Belanja ===");
+        for (Produk p : produkList) {
+            if (p.jumlah > 0) {
+                System.out.printf("%s: %d x Rp %d = Rp %d%n", p.nama, p.jumlah, p.harga, p.harga * p.jumlah);
+            }
+        }
+        System.out.printf("Total: Rp %d%n", total);
+        System.out.printf("Diskon: Rp %.0f%n", diskon);
+        System.out.printf("Total Akhir: Rp %.0f%n", totalAkhir);
+    }
+}
